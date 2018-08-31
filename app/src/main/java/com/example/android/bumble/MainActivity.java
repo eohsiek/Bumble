@@ -7,6 +7,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -45,7 +46,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void getPrompt(View v) {
         Intent myIntent = new Intent(MainActivity.this, DisplayPrompt.class);
-        myIntent.putExtra("scenetype", "place"); //Optional parameters
+        Button b = (Button)v;
+        String buttonText = b.getText().toString();
+        myIntent.putExtra("promptType", buttonText); //Optional parameters
         MainActivity.this.startActivity(myIntent);
     }
 
