@@ -7,6 +7,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.android.bumble.network.PromptService;
@@ -87,6 +88,10 @@ public class DisplayPrompt extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void getNewPrompt(View v) {
+        recreate();
     }
 
 }
