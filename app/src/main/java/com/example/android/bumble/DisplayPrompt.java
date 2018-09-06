@@ -56,7 +56,15 @@ public class DisplayPrompt extends AppCompatActivity {
     private String promptType;
     public static final String USER_SETTINGS = "UserSettings";
     public static final String USER_SETTING_ADJECTIVE1 = "Adjective1";
+    public static final String USER_SETTING_ADJECTIVE2 = "Adjective2";
+    public static final String USER_SETTING_ADVERB = "Adverb";
+    public static final String USER_SETTING_LOCATION = "Location";
+    public static final String USER_SETTING_LOCATION_ADJECTIVE = "LocationAdjective";
     private Switch adjective1Switch;
+    private Switch adjective2Switch;
+    private Switch adverbSwitch;
+    private Switch locationSwitch;
+    private Switch locationAdjectiveSwitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,11 +77,17 @@ public class DisplayPrompt extends AppCompatActivity {
         mService = ApiUtils.getPromptService();
 
         Intent intent = getIntent();
+
         promptType = intent.getStringExtra("promptType");
         title = findViewById(R.id.title);
         loadingImage = findViewById(R.id.loadingImage);
         promptText = findViewById(R.id.promptText);
         adjective1Switch = findViewById(R.id.adjective1Switch);
+        adjective2Switch = findViewById(R.id.adjective2Switch);
+        adverbSwitch = findViewById(R.id.adverbSwitch);
+        locationSwitch = findViewById(R.id.locationSwitch);
+        locationAdjectiveSwitch = findViewById(R.id.locationAdjectiveSwitch);
+
 
         title.setText(promptType);
         Glide.with(getApplicationContext())
@@ -84,11 +98,45 @@ public class DisplayPrompt extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
+        /********
+         *  Set visibility of switches based on prompt type
+         */
+
+        if(promptType == "scene") {
+            adverbSwitch.setVisibility(View.VISIBLE);
+            locationSwitch.setVisibility(View.VISIBLE);
+            locationAdjectiveSwitch.setVisibility(View.VISIBLE);
+        }
+
+        else {
+            adverbSwitch.setVisibility(View.INVISIBLE);
+            locationSwitch.setVisibility(View.INVISIBLE);
+            locationAdjectiveSwitch.setVisibility(View.INVISIBLE);
+        }
+
+        /********
+              Set defaults from shared preferences
+         */
         Boolean adjective1SwitchState = preferences.getBoolean(promptType + USER_SETTING_ADJECTIVE1, true);
         adjective1Switch.setChecked(adjective1SwitchState);
 
+        Boolean adjective2SwitchState = preferences.getBoolean(promptType + USER_SETTING_ADJECTIVE2, true);
+        adjective2Switch.setChecked(adjective2SwitchState);
+
+        Boolean adverbSwitchState = preferences.getBoolean(promptType + USER_SETTING_ADVERB, true);
+        adverbSwitch.setChecked(adverbSwitchState);
+
+        Boolean locationSwitchState = preferences.getBoolean(promptType + USER_SETTING_LOCATION, true);
+        locationSwitch.setChecked(locationSwitchState);
+
+        Boolean locationAdjectiveSwitchState = preferences.getBoolean(promptType + USER_SETTING_LOCATION_ADJECTIVE, true);
+        locationAdjectiveSwitch.setChecked(locationAdjectiveSwitchState);
+
         editor = getSharedPreferences(USER_SETTINGS, MODE_PRIVATE).edit();
 
+        /********
+         * Switch Listeners
+         */
         adjective1Switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked == true){
@@ -101,11 +149,58 @@ public class DisplayPrompt extends AppCompatActivity {
             }
         });
 
+        adjective2Switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked == true){
+                    editor.putBoolean(promptType + USER_SETTING_ADJECTIVE2, true);
+                }
+                else {
+                    editor.putBoolean(promptType + USER_SETTING_ADJECTIVE2, false);
+                }
+                editor.commit();
+            }
+        });
+
+        adverbSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked == true){
+                    editor.putBoolean(promptType + USER_SETTING_ADVERB, true);
+                }
+                else {
+                    editor.putBoolean(promptType + USER_SETTING_ADVERB, false);
+                }
+                editor.commit();
+            }
+        });
+
+        locationSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked == true){
+                    editor.putBoolean(promptType + USER_SETTING_LOCATION, true);
+                }
+                else {
+                    editor.putBoolean(promptType + USER_SETTING_LOCATION, false);
+                }
+                editor.commit();
+            }
+        });
+
+        locationAdjectiveSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked == true){
+                    editor.putBoolean(promptType + USER_SETTING_LOCATION_ADJECTIVE, true);
+                }
+                else {
+                    editor.putBoolean(promptType + USER_SETTING_LOCATION_ADJECTIVE, false);
+                }
+                editor.commit();
+            }
+        });
+
         getPrompt();
     }
 
     public void getPrompt() {
-        Log.d("DisplayPromptActivity", "call API");
         promptText.setText("");
         loadingImage.setVisibility(View.VISIBLE);
 
