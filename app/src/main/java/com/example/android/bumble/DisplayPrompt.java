@@ -60,18 +60,24 @@ public class DisplayPrompt extends AppCompatActivity {
     public static final String USER_SETTING_ADVERB = "Adverb";
     public static final String USER_SETTING_LOCATION = "Location";
     public static final String USER_SETTING_LOCATION_ADJECTIVE = "LocationAdjective";
+    public static final String SCENE = "Scene";
     private Switch adjective1Switch;
     private Switch adjective2Switch;
     private Switch adverbSwitch;
     private Switch locationSwitch;
     private Switch locationAdjectiveSwitch;
+    private Boolean adjective1SwitchState;
+    private Boolean adjective2SwitchState;
+    private Boolean adverbSwitchState;
+    private Boolean locationSwitchState;
+    private Boolean locationAdjectiveSwitchState;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         SharedPreferences preferences = getSharedPreferences(USER_SETTINGS, MODE_PRIVATE);
-        Log.i("DisplayPromptPref", preferences.toString());
 
         setContentView(R.layout.activity_display_prompt);
         mService = ApiUtils.getPromptService();
@@ -102,7 +108,8 @@ public class DisplayPrompt extends AppCompatActivity {
          *  Set visibility of switches based on prompt type
          */
 
-        if(promptType == "scene") {
+        Log.i("prompttype", promptType);
+        if(promptType.equals(SCENE)) {
             adverbSwitch.setVisibility(View.VISIBLE);
             locationSwitch.setVisibility(View.VISIBLE);
             locationAdjectiveSwitch.setVisibility(View.VISIBLE);
@@ -117,19 +124,19 @@ public class DisplayPrompt extends AppCompatActivity {
         /********
               Set defaults from shared preferences
          */
-        Boolean adjective1SwitchState = preferences.getBoolean(promptType + USER_SETTING_ADJECTIVE1, true);
+        adjective1SwitchState = preferences.getBoolean(promptType + USER_SETTING_ADJECTIVE1, true);
         adjective1Switch.setChecked(adjective1SwitchState);
 
-        Boolean adjective2SwitchState = preferences.getBoolean(promptType + USER_SETTING_ADJECTIVE2, true);
+        adjective2SwitchState = preferences.getBoolean(promptType + USER_SETTING_ADJECTIVE2, true);
         adjective2Switch.setChecked(adjective2SwitchState);
 
-        Boolean adverbSwitchState = preferences.getBoolean(promptType + USER_SETTING_ADVERB, true);
+        adverbSwitchState = preferences.getBoolean(promptType + USER_SETTING_ADVERB, true);
         adverbSwitch.setChecked(adverbSwitchState);
 
-        Boolean locationSwitchState = preferences.getBoolean(promptType + USER_SETTING_LOCATION, true);
+        locationSwitchState = preferences.getBoolean(promptType + USER_SETTING_LOCATION, true);
         locationSwitch.setChecked(locationSwitchState);
 
-        Boolean locationAdjectiveSwitchState = preferences.getBoolean(promptType + USER_SETTING_LOCATION_ADJECTIVE, true);
+        locationAdjectiveSwitchState = preferences.getBoolean(promptType + USER_SETTING_LOCATION_ADJECTIVE, true);
         locationAdjectiveSwitch.setChecked(locationAdjectiveSwitchState);
 
         editor = getSharedPreferences(USER_SETTINGS, MODE_PRIVATE).edit();
@@ -141,9 +148,11 @@ public class DisplayPrompt extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked == true){
                     editor.putBoolean(promptType + USER_SETTING_ADJECTIVE1, true);
+                    adjective1SwitchState = true;
                 }
                 else {
                     editor.putBoolean(promptType + USER_SETTING_ADJECTIVE1, false);
+                    adjective1SwitchState = false;
                 }
                 editor.commit();
             }
@@ -153,9 +162,11 @@ public class DisplayPrompt extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked == true){
                     editor.putBoolean(promptType + USER_SETTING_ADJECTIVE2, true);
+                    adjective2SwitchState = true;
                 }
                 else {
                     editor.putBoolean(promptType + USER_SETTING_ADJECTIVE2, false);
+                    adjective2SwitchState = false;
                 }
                 editor.commit();
             }
@@ -165,9 +176,11 @@ public class DisplayPrompt extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked == true){
                     editor.putBoolean(promptType + USER_SETTING_ADVERB, true);
+                    adverbSwitchState = true;
                 }
                 else {
                     editor.putBoolean(promptType + USER_SETTING_ADVERB, false);
+                    adverbSwitchState = false;
                 }
                 editor.commit();
             }
@@ -177,9 +190,11 @@ public class DisplayPrompt extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked == true){
                     editor.putBoolean(promptType + USER_SETTING_LOCATION, true);
+                    locationSwitchState = true;
                 }
                 else {
                     editor.putBoolean(promptType + USER_SETTING_LOCATION, false);
+                    locationSwitchState = false;
                 }
                 editor.commit();
             }
@@ -189,9 +204,11 @@ public class DisplayPrompt extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked == true){
                     editor.putBoolean(promptType + USER_SETTING_LOCATION_ADJECTIVE, true);
+                    locationAdjectiveSwitchState = true;
                 }
                 else {
                     editor.putBoolean(promptType + USER_SETTING_LOCATION_ADJECTIVE, false);
+                    locationAdjectiveSwitchState = false;
                 }
                 editor.commit();
             }
@@ -203,8 +220,17 @@ public class DisplayPrompt extends AppCompatActivity {
     public void getPrompt() {
         promptText.setText("");
         loadingImage.setVisibility(View.VISIBLE);
+        /* Convert boolean to int for API */
+        int includeAdjective1 = adjective1SwitchState ? 1 : 0;
+        int includeAdjective2 = adjective2SwitchState ? 1 : 0;
+        int includeAdverb = adverbSwitchState ? 1 : 0;
+        int includePlace = locationSwitchState ? 1 : 0;
+        int includePlaceAdjective = locationAdjectiveSwitchState ? 1 : 0;
 
-        mService.getAnswers().enqueue(new Callback<PromptResponse>() {
+        /* make asyncronous call to API */
+
+        mService.getPrompt(promptType, includeAdjective1, includeAdjective2, includeAdverb, includePlace, includePlaceAdjective)
+                .enqueue(new Callback<PromptResponse>() {
 
             @Override
 
@@ -213,7 +239,6 @@ public class DisplayPrompt extends AppCompatActivity {
                 if(response.isSuccessful()) {
                     loadingImage.setVisibility(View.INVISIBLE);
                     promptText.setText(response.body().getPrompt());
-                    Log.d("DisplayPromptActivity", response.body().getPrompt());
                 }else {
                     int statusCode  = response.code();
                     // handle request errors depending on status code
