@@ -9,12 +9,12 @@ import retrofit2.http.Query;
 
 public interface PromptService {
 
-    @GET("?promptType=scene&includeAdjective1=1&includeAdjective2=1&includeAdverb=1&includePlace=1&includePlaceAdjective=1")
+    @GET("?")
     Call<PromptResponse> getPrompt(
             @Query("promptType") String promptType,
             @Query("includeAdjective1") Integer includeAdjective1,
             @Query("includeAdjective2") Integer includeAdjective2,
-            @Query("includeAdjectve") Integer includeAdverb,
+            @Query("includeAdverb") Integer includeAdverb,
             @Query("includePlace") Integer includePlace,
             @Query("includePlaceAdjective") Integer includePlaceAdjective);
 }

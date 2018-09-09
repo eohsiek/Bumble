@@ -21,13 +21,10 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-
                     return true;
                 case R.id.navigation_favorites:
-
                     return true;
                 case R.id.navigation_notifications:
-
                     return true;
             }
             return false;
