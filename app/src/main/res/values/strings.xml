@@ -9,6 +9,12 @@
     <string name="title_activity_suggest_word">SuggestWord</string>
     <string name="title_activity_saved_prompts">SavedPrompts</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="wordtype_array">
+        <item>Object</item>
+        <item>Character</item>
+        <item>Place</item>
+        <item>Verb</item>
+        <item>Adverb</item>
+    </string-array>
 </resources>

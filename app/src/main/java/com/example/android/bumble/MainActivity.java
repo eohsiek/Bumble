@@ -63,7 +63,6 @@ public class MainActivity extends AppCompatActivity{
         promptInfo.putString("promptType", buttonText);
         promptFragment.setArguments(promptInfo);
 
-        navigation.getMenu().setGroupCheckable(0,false, true);
         fragmentManager.beginTransaction().replace(R.id.main_container, promptFragment, "promptFragment").commit();
     }
 
@@ -72,7 +71,7 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void getNewPrompt(View v) {
-   
+
         PromptFragment promptFragment = (PromptFragment) getSupportFragmentManager().findFragmentByTag("promptFragment");
         promptFragment.getPrompt();
 

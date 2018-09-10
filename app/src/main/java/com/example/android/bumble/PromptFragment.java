@@ -68,9 +68,6 @@ public class PromptFragment extends Fragment  {
         SharedPreferences preferences = this.getActivity().getSharedPreferences(USER_SETTINGS, Context.MODE_PRIVATE);
         mService = ApiUtils.getPromptService();
 
-        BottomNavigationView navigation = getActivity().findViewById(R.id.navigation);
-        navigation.getMenu().setGroupCheckable(0,true, true);
-
         promptType = getArguments().getString("promptType");
         title = view.findViewById(R.id.title);
         loadingImage = view.findViewById(R.id.loadingImage);
