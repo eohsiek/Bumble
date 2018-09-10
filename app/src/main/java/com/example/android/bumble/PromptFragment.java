@@ -239,4 +239,8 @@ public class PromptFragment extends Fragment  {
                 });
     }
 
+    public void getNewPrompt() {
+        Log.i("getnew", "yes");
+    }
+
 }

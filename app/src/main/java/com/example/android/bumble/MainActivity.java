@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity{
         promptFragment.setArguments(promptInfo);
 
         navigation.getMenu().setGroupCheckable(0,false, true);
-        fragmentManager.beginTransaction().replace(R.id.main_container, promptFragment).commit();
+        fragmentManager.beginTransaction().replace(R.id.main_container, promptFragment, "promptFragment").commit();
     }
 
     public BottomNavigationView getNavigation() {
@@ -72,11 +72,9 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void getNewPrompt(View v) {
-        fragmentManager.beginTransaction().remove(promptFragment).commit();
-        PromptFragment promptFragment = new PromptFragment();
-        Bundle promptInfo = new Bundle();
-        promptInfo.putString("promptType", "Character");
-        promptFragment.setArguments(promptInfo);
-        fragmentManager.beginTransaction().add(R.id.main_container, promptFragment).commit();
+   
+        PromptFragment promptFragment = (PromptFragment) getSupportFragmentManager().findFragmentByTag("promptFragment");
+        promptFragment.getPrompt();
+
     }
 }
