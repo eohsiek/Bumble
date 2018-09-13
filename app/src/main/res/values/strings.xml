@@ -16,5 +16,6 @@
         <item>Place</item>
         <item>Verb</item>
         <item>Adverb</item>
+        <item>Adjective</item>
     </string-array>
 </resources>
