@@ -59,7 +59,6 @@ public class SuggestWordFragment extends Fragment {
         final TextInputEditText textEditfield = getActivity().findViewById(R.id.suggestedWord);
         String suggestedWord = String.valueOf(textEditfield.getText());
 
-
        /* make asynchronous call to API */
         mService = ApiUtils.getSuggestService();
         mService.sendWord(tableName, suggestedWord)

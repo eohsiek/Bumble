@@ -76,6 +76,9 @@
             android:id="@+id/suggestedWord"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="text"
+            android:imeOptions="actionNext"
+            android:maxLines="1"
             android:hint="enter your word" />
     </android.support.design.widget.TextInputLayout>
 
