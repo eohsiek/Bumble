@@ -2,6 +2,7 @@
 package com.example.android.bumble.network;
 
 import com.example.android.bumble.network.pojo.PromptResponse;
+import com.example.android.bumble.network.pojo.SuggestionResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -17,4 +18,9 @@ public interface PromptService {
             @Query("includeAdverb") Integer includeAdverb,
             @Query("includePlace") Integer includePlace,
             @Query("includePlaceAdjective") Integer includePlaceAdjective);
+
+    @GET("?")
+    Call<SuggestionResponse> sendWord(
+            @Query("tableName") String tableName,
+            @Query("suggestedWord") String suggestedWord);
 }

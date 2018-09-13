@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity{
                     fragmentManager.beginTransaction().replace(R.id.main_container, savedPromptsFragment).commit();
                     return true;
                 case R.id.navigation_notifications:
-                    fragmentManager.beginTransaction().replace(R.id.main_container, suggestWordFragment).commit();
+                    fragmentManager.beginTransaction().replace(R.id.main_container, suggestWordFragment, "suggestWordFragment").commit();
                     return true;
             }
             return false;
@@ -75,5 +75,11 @@ public class MainActivity extends AppCompatActivity{
         PromptFragment promptFragment = (PromptFragment) getSupportFragmentManager().findFragmentByTag("promptFragment");
         promptFragment.getPrompt();
 
+    }
+
+    public void sendWord(View v) {
+        Log.i("BumbleError", "Got to the main activity method");
+        SuggestWordFragment suggestWordFragment = (SuggestWordFragment) getSupportFragmentManager().findFragmentByTag("suggestWordFragment");
+        suggestWordFragment.sendWord();
     }
 }

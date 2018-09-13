@@ -12,4 +12,10 @@ public class ApiUtils {
     public static PromptService getPromptService() {
         return RetrofitClient.getClient(BASE_URL_PROMPT).create(PromptService.class);
     }
+
+    public static PromptService getSuggestService() {
+        return RetrofitClient.getClient(BASE_URL_SUGGEST).create(PromptService.class);
+    }
+
+
 }
