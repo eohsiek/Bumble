@@ -14,12 +14,15 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 public class MainActivity extends AppCompatActivity{
 
     final Fragment homeFragment = new HomeFragment();
     final Fragment savedPromptsFragment = new SavedPromptsFragment();
     final Fragment suggestWordFragment = new SuggestWordFragment();
     final Fragment promptFragment = new PromptFragment();
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     final FragmentManager fragmentManager = getSupportFragmentManager();
 
@@ -35,6 +38,7 @@ public class MainActivity extends AppCompatActivity{
 
         fragmentManager.beginTransaction().add(R.id.main_container, homeFragment).commit();
         navigation.setSelectedItemId(R.id.navigation_home);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -63,6 +67,11 @@ public class MainActivity extends AppCompatActivity{
         Bundle promptInfo = new Bundle();
         promptInfo.putString("promptType", buttonText);
         promptFragment.setArguments(promptInfo);
+        // log prompt to Analytics
+        Bundle bundle = new Bundle();
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, buttonText);
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "prompt");
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
 
         fragmentManager.beginTransaction().replace(R.id.main_container, promptFragment, "promptFragment").commit();
     }

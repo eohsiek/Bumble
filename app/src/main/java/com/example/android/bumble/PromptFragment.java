@@ -21,6 +21,7 @@ import com.bumptech.glide.Glide;
 import com.example.android.bumble.network.PromptService;
 import com.example.android.bumble.network.pojo.ApiUtils;
 import com.example.android.bumble.network.pojo.PromptResponse;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -56,6 +57,7 @@ public class PromptFragment extends Fragment  {
     private Boolean adverbSwitchState;
     private Boolean locationSwitchState;
     private Boolean locationAdjectiveSwitchState;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     public PromptFragment() {
         // Required empty public constructor
@@ -203,7 +205,20 @@ public class PromptFragment extends Fragment  {
         return view;
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(context);
+    }
+
     public void getPrompt() {
+
+        // log prompt to Analytics
+        Bundle bundle = new Bundle();
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, promptType);
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "newPrompt");
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+
         promptText.setText("");
         loadingImage.setVisibility(View.VISIBLE);
 
@@ -250,6 +265,11 @@ public class PromptFragment extends Fragment  {
     }
 
     public void processFavorite() {
+        // log prompt to Analytics
+        Bundle bundle = new Bundle();
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "addFavorite");
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+
         FloatingActionButton fab = getActivity().findViewById(R.id.floatingActionButton);
         fab.setImageResource(R.drawable.ic_notifications_black_24dp);
         fab.setEnabled(false);
