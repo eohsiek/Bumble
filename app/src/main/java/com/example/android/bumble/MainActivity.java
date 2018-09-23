@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -71,15 +72,18 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void getNewPrompt(View v) {
-
         PromptFragment promptFragment = (PromptFragment) getSupportFragmentManager().findFragmentByTag("promptFragment");
         promptFragment.getPrompt();
-
     }
 
     public void sendWord(View v) {
-        Log.i("BumbleError", "Got to the main activity method");
         SuggestWordFragment suggestWordFragment = (SuggestWordFragment) getSupportFragmentManager().findFragmentByTag("suggestWordFragment");
         suggestWordFragment.sendWord();
+    }
+
+    public void processFavorite(View v) {
+        Toast.makeText(this, "Favorite button pressed", Toast.LENGTH_SHORT).show();
+        PromptFragment promptFragment = (PromptFragment) getSupportFragmentManager().findFragmentByTag("promptFragment");
+        promptFragment.processFavorite();
     }
 }

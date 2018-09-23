@@ -123,6 +123,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="120dp"
         android:clickable="true"
+        android:onClick="processFavorite"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_favorite_black_24dp" />

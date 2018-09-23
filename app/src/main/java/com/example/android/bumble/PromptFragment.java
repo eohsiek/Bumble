@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -36,6 +37,7 @@ public class PromptFragment extends Fragment  {
     private PromptService mService;
     private ImageView loadingImage;
     private TextView promptText;
+    private FloatingActionButton fab;
     private SharedPreferences.Editor editor;
     public static final String USER_SETTINGS = "UserSettings";
     public static final String USER_SETTING_ADJECTIVE1 = "Adjective1";
@@ -77,6 +79,9 @@ public class PromptFragment extends Fragment  {
         adverbSwitch = view.findViewById(R.id.adverbSwitch);
         locationSwitch = view.findViewById(R.id.locationSwitch);
         locationAdjectiveSwitch = view.findViewById(R.id.locationAdjectiveSwitch);
+
+
+        fab = view.findViewById(R.id.floatingActionButton);
 
         title.setText(promptType);
         Glide.with(this)
@@ -201,7 +206,11 @@ public class PromptFragment extends Fragment  {
     public void getPrompt() {
         promptText.setText("");
         loadingImage.setVisibility(View.VISIBLE);
-        /* Convert boolean to int for API */
+
+        fab.setImageResource(R.drawable.ic_favorite_black_24dp);
+        fab.setEnabled(true);
+
+               /* Convert boolean to int for API */
         int includeAdjective1 = adjective1SwitchState ? 1 : 0;
         int includeAdjective2 = adjective2SwitchState ? 1 : 0;
         int includeAdverb = adverbSwitchState ? 1 : 0;
@@ -239,5 +248,12 @@ public class PromptFragment extends Fragment  {
     public void getNewPrompt() {
         Log.i("getnew", "yes");
     }
+
+    public void processFavorite() {
+        FloatingActionButton fab = getActivity().findViewById(R.id.floatingActionButton);
+        fab.setImageResource(R.drawable.ic_notifications_black_24dp);
+        fab.setEnabled(false);
+    }
+
 
 }
