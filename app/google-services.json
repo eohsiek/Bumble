@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "693275821678",
+    "firebase_url": "https://bumble-53425.firebaseio.com",
+    "project_id": "bumble-53425",
+    "storage_bucket": "bumble-53425.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693275821678:android:dff096c19ab2cab6",
+        "android_client_info": {
+          "package_name": "com.example.android.bumble"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "693275821678-r3uaquooeaqnmgb31kdrpee77bhuqigu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.android.bumble",
+            "certificate_hash": "23f4563d6842daa097f9fac2c991e1757e69bf22"
+          }
+        },
+        {
+          "client_id": "693275821678-q53jlghjj0m6ecac142ssvj5h4f8ui1q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwbFuHcZ5VaIXLiIqN44Ol8hfZSL4anHk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "693275821678-q53jlghjj0m6ecac142ssvj5h4f8ui1q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
