@@ -18,6 +18,9 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.android.bumble.database.Favorite;
+import com.example.android.bumble.database.FavoriteViewModel;
+import android.arch.lifecycle.ViewModelProviders;
 import com.example.android.bumble.network.PromptService;
 import com.example.android.bumble.network.pojo.ApiUtils;
 import com.example.android.bumble.network.pojo.PromptResponse;
@@ -58,6 +61,7 @@ public class PromptFragment extends Fragment  {
     private Boolean locationSwitchState;
     private Boolean locationAdjectiveSwitchState;
     private FirebaseAnalytics mFirebaseAnalytics;
+    private FavoriteViewModel favoriteViewModel;
 
     public PromptFragment() {
         // Required empty public constructor
@@ -269,6 +273,13 @@ public class PromptFragment extends Fragment  {
         Bundle bundle = new Bundle();
         bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "addFavorite");
         mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+
+        final Favorite favorite = new Favorite();
+        promptText = getActivity().findViewById(R.id.promptText);
+        favorite.favoritePrompt = (String) promptText.getText();
+
+        FavoriteViewModel favoriteViewModel = ViewModelProviders.of(this).get(FavoriteViewModel.class);
+        favoriteViewModel.insert(favorite);
 
         FloatingActionButton fab = getActivity().findViewById(R.id.floatingActionButton);
         fab.setImageResource(R.drawable.ic_notifications_black_24dp);
