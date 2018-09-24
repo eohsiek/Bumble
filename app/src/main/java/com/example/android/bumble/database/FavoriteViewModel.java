@@ -17,7 +17,7 @@ public class FavoriteViewModel extends AndroidViewModel {
         allFavorites = repository.getAllFavorites();
     }
 
-    LiveData<List<Favorite>> getAllFavorites() { return allFavorites; }
+    public LiveData<List<Favorite>> getAllFavorites() { return allFavorites; }
 
     public void insert(Favorite favorite) { repository.insert(favorite); }
 
