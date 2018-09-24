@@ -1,0 +1,29 @@
+package com.example.android.bumble.database;
+
+import android.arch.persistence.room.Database;
+import android.arch.persistence.room.Room;
+import android.arch.persistence.room.RoomDatabase;
+import android.content.Context;
+
+@Database(entities = {Favorite.class}, version = 2, exportSchema = false)
+public abstract class FavoriteDatabase extends RoomDatabase {
+    public abstract FavoriteDao favoriteDao();
+
+    private static FavoriteDatabase INSTANCE;
+
+    public static FavoriteDatabase getDatabase(final Context context) {
+        if (INSTANCE == null) {
+            synchronized (FavoriteDatabase.class) {
+                if (INSTANCE == null) {
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+                            FavoriteDatabase.class, "favoritedb")
+                            //temporary solution to deal with db changes during development
+                            .fallbackToDestructiveMigration()
+                            .build();
+                }
+            }
+        }
+        return INSTANCE;
+    }
+
+}
