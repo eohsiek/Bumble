@@ -3,11 +3,13 @@ package com.example.android.bumble;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.ClipData;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +38,7 @@ public class SavedPromptsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_saved_prompts, container, false);
+        final View view =  inflater.inflate(R.layout.fragment_saved_prompts, container, false);
 
         favoriteViewModel = ViewModelProviders.of(this).get(FavoriteViewModel.class);
 
@@ -55,13 +57,19 @@ public class SavedPromptsFragment extends Fragment {
 
         recyclerView.setAdapter(adapter);
 
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                favoriteViewModel.delete(adapter.getFavoriteAt(viewHolder.getAdapterPosition()));
+                Toast.makeText(getActivity(), "Note Deleted", Toast.LENGTH_SHORT).show();
+            }
+        }).attachToRecyclerView(recyclerView);
+
         return view;
     }
-/*
-    public void delete()
-    {
-        Toast.makeText(getActivity(), "trying to delete favorite", Toast.LENGTH_SHORT).show();
-        adapter.getAdapterPosition();
-    }
-  */
 }

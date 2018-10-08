@@ -95,10 +95,5 @@ public class MainActivity extends AppCompatActivity{
         PromptFragment promptFragment = (PromptFragment) getSupportFragmentManager().findFragmentByTag("promptFragment");
         promptFragment.processFavorite();
     }
-/*
-    public void delete(View v) {
-        SavedPromptsFragment savedPromptsFragment = (SavedPromptsFragment) getSupportFragmentManager().findFragmentByTag("savedPromptsFragment");
-        savedPromptsFragment.delete();
-    }
-   */
+
 }

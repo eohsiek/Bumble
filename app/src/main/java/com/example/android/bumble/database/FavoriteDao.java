@@ -15,7 +15,7 @@ public interface FavoriteDao {
     void insert(Favorite favorite);
 
     @Delete
-    void deleteFavorite (Favorite favorite);
+    void delete(Favorite favorite);
 
     @Query("SELECT * FROM favoritePrompts")
     LiveData<List<Favorite>> getAllFavorites();
