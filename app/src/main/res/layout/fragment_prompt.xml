@@ -56,7 +56,8 @@
         android:layout_marginStart="36dp"
         android:text="Adjective 1  "
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        android:saveEnabled="false" />
 
     <Switch
         android:id="@+id/adjective2Switch"
@@ -67,7 +68,8 @@
         android:layout_marginTop="8dp"
         android:text="Adjective 2  "
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        android:saveEnabled="false"/>
 
     <Switch
         android:id="@+id/adverbSwitch"
@@ -78,7 +80,8 @@
         android:layout_marginTop="8dp"
         android:text="Adverb  "
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adjective1Switch" />
+        app:layout_constraintTop_toBottomOf="@+id/adjective1Switch"
+        android:saveEnabled="false"/>
 
     <TextView
         android:id="@+id/textView3"
@@ -102,7 +105,8 @@
         android:layout_marginTop="8dp"
         android:text="Location  "
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adjective2Switch" />
+        app:layout_constraintTop_toBottomOf="@+id/adjective2Switch"
+        android:saveEnabled="false"/>
 
     <Switch
         android:id="@+id/locationAdjectiveSwitch"
@@ -113,7 +117,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adverbSwitch" />
+        app:layout_constraintTop_toBottomOf="@+id/adverbSwitch"
+        android:saveEnabled="false"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatingActionButton"

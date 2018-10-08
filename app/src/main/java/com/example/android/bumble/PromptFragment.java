@@ -63,6 +63,8 @@ public class PromptFragment extends Fragment  {
     private FirebaseAnalytics mFirebaseAnalytics;
     private FavoriteViewModel favoriteViewModel;
 
+    private SharedPreferences preferences;
+
     public PromptFragment() {
         // Required empty public constructor
     }
@@ -70,10 +72,11 @@ public class PromptFragment extends Fragment  {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Log.i("adjectiveTest", "oncreate");
 
         View view = inflater.inflate(R.layout.fragment_prompt, container, false);
 
-        SharedPreferences preferences = this.getActivity().getSharedPreferences(USER_SETTINGS, Context.MODE_PRIVATE);
+        preferences = this.getActivity().getSharedPreferences(USER_SETTINGS, Context.MODE_PRIVATE);
         mService = ApiUtils.getPromptService();
 
         promptType = getArguments().getString("promptType");
@@ -111,24 +114,7 @@ public class PromptFragment extends Fragment  {
             locationAdjectiveSwitch.setVisibility(View.INVISIBLE);
         }
 
-        /********
-         Set defaults from shared preferences
-         */
-        adjective1SwitchState = preferences.getBoolean(promptType + USER_SETTING_ADJECTIVE1, true);
-        adjective1Switch.setChecked(adjective1SwitchState);
-
-        adjective2SwitchState = preferences.getBoolean(promptType + USER_SETTING_ADJECTIVE2, true);
-        adjective2Switch.setChecked(adjective2SwitchState);
-
-        adverbSwitchState = preferences.getBoolean(promptType + USER_SETTING_ADVERB, true);
-        adverbSwitch.setChecked(adverbSwitchState);
-
-        locationSwitchState = preferences.getBoolean(promptType + USER_SETTING_LOCATION, true);
-        locationSwitch.setChecked(locationSwitchState);
-
-        locationAdjectiveSwitchState = preferences.getBoolean(promptType + USER_SETTING_LOCATION_ADJECTIVE, true);
-        locationAdjectiveSwitch.setChecked(locationAdjectiveSwitchState);
-
+        setSwitches();
         editor = preferences.edit();
 
         /********
@@ -136,6 +122,7 @@ public class PromptFragment extends Fragment  {
          */
         adjective1Switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                Log.i("adjective1SwitchAction", String.valueOf(isChecked));
                 if(isChecked == true){
                     editor.putBoolean(promptType + USER_SETTING_ADJECTIVE1, true);
                     adjective1SwitchState = true;
@@ -215,6 +202,14 @@ public class PromptFragment extends Fragment  {
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(context);
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+        Log.i("adjectiveTest", "onresume");
+        setSwitches();
+    }
+
+
     public void getPrompt() {
 
         // log prompt to Analytics
@@ -284,6 +279,29 @@ public class PromptFragment extends Fragment  {
         FloatingActionButton fab = getActivity().findViewById(R.id.floatingActionButton);
         fab.setImageResource(R.drawable.ic_notifications_black_24dp);
         fab.setEnabled(false);
+    }
+
+    public void setSwitches() {
+
+        /********
+         Set defaults from shared preferences
+         */
+        adjective1SwitchState = preferences.getBoolean(promptType + USER_SETTING_ADJECTIVE1, true);
+        Log.i("adjective1SwitchName", promptType + USER_SETTING_ADJECTIVE1);
+        Log.i("adjective1SwitchState",adjective1SwitchState.toString());
+        adjective1Switch.setChecked(adjective1SwitchState);
+
+        adjective2SwitchState = preferences.getBoolean(promptType + USER_SETTING_ADJECTIVE2, true);
+        adjective2Switch.setChecked(adjective2SwitchState);
+
+        adverbSwitchState = preferences.getBoolean(promptType + USER_SETTING_ADVERB, true);
+        adverbSwitch.setChecked(adverbSwitchState);
+
+        locationSwitchState = preferences.getBoolean(promptType + USER_SETTING_LOCATION, true);
+        locationSwitch.setChecked(locationSwitchState);
+
+        locationAdjectiveSwitchState = preferences.getBoolean(promptType + USER_SETTING_LOCATION_ADJECTIVE, true);
+        locationAdjectiveSwitch.setChecked(locationAdjectiveSwitchState);
     }
 
 
