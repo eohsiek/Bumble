@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.android.bumble.database.Favorite;
 import com.example.android.bumble.database.FavoriteViewModel;
@@ -24,6 +25,7 @@ import java.util.List;
 public class SavedPromptsFragment extends Fragment {
 
     private FavoriteViewModel favoriteViewModel;
+    private FavoriteListAdapter adapter;
 
     public SavedPromptsFragment() {
         // Required empty public constructor
@@ -38,7 +40,7 @@ public class SavedPromptsFragment extends Fragment {
 
         favoriteViewModel = ViewModelProviders.of(this).get(FavoriteViewModel.class);
 
-        final FavoriteListAdapter adapter = new FavoriteListAdapter(getActivity());
+        adapter = new FavoriteListAdapter(getActivity());
         favoriteViewModel.getAllFavorites().observe(this, new Observer<List<Favorite>>() {
             @Override
             public void onChanged(@Nullable final List<Favorite> favorites) {
@@ -52,7 +54,14 @@ public class SavedPromptsFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         recyclerView.setAdapter(adapter);
+
         return view;
     }
-
+/*
+    public void delete()
+    {
+        Toast.makeText(getActivity(), "trying to delete favorite", Toast.LENGTH_SHORT).show();
+        adapter.getAdapterPosition();
+    }
+  */
 }

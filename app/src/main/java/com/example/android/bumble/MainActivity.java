@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity{
                     fragmentManager.beginTransaction().replace(R.id.main_container, homeFragment).commit();
                     return true;
                 case R.id.navigation_favorites:
-                    fragmentManager.beginTransaction().replace(R.id.main_container, savedPromptsFragment).commit();
+                    fragmentManager.beginTransaction().replace(R.id.main_container, savedPromptsFragment, "savedPromptsFragment").commit();
                     return true;
                 case R.id.navigation_notifications:
                     fragmentManager.beginTransaction().replace(R.id.main_container, suggestWordFragment, "suggestWordFragment").commit();
@@ -95,4 +95,10 @@ public class MainActivity extends AppCompatActivity{
         PromptFragment promptFragment = (PromptFragment) getSupportFragmentManager().findFragmentByTag("promptFragment");
         promptFragment.processFavorite();
     }
+/*
+    public void delete(View v) {
+        SavedPromptsFragment savedPromptsFragment = (SavedPromptsFragment) getSupportFragmentManager().findFragmentByTag("savedPromptsFragment");
+        savedPromptsFragment.delete();
+    }
+   */
 }
