@@ -2,6 +2,8 @@ package com.example.android.bumble;
 
 
 import android.app.Activity;
+import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -14,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.RemoteViews;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -247,10 +250,15 @@ public class PromptFragment extends Fragment  {
                             promptText.setText(newprompt);
                             editor = preferences.edit();
                             editor.putString(USER_SETTING_LAST_PROMPT, newprompt).commit();
+                            //update widget
+                            AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(getActivity());
+                            int[] ids = appWidgetManager.getAppWidgetIds(new ComponentName(getActivity(), PromptWidget.class));
+                            PromptWidget widget = new PromptWidget();
+                            widget.onUpdate(getActivity(), AppWidgetManager.getInstance(getActivity()),ids);
                         }else {
                             int statusCode  = response.code();
                             // handle request errors depending on status code
-                            Log.d("DisplayPromptActivityError", String.valueOf(statusCode));
+                            Log.d("DisplayPromptError", String.valueOf(statusCode));
                         }
                     }
 
