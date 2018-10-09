@@ -49,6 +49,7 @@ public class PromptFragment extends Fragment  {
     public static final String USER_SETTING_ADVERB = "Adverb";
     public static final String USER_SETTING_LOCATION = "Location";
     public static final String USER_SETTING_LOCATION_ADJECTIVE = "LocationAdjective";
+    public static final String USER_SETTING_LAST_PROMPT = "LastPrompt";
     public static final String SCENE = "Scene";
     private Switch adjective1Switch;
     private Switch adjective2Switch;
@@ -242,11 +243,14 @@ public class PromptFragment extends Fragment  {
 
                         if(response.isSuccessful()) {
                             loadingImage.setVisibility(View.INVISIBLE);
-                            promptText.setText(response.body().getPrompt());
+                            String newprompt = response.body().getPrompt();
+                            promptText.setText(newprompt);
+                            editor = preferences.edit();
+                            editor.putString(USER_SETTING_LAST_PROMPT, newprompt).commit();
                         }else {
                             int statusCode  = response.code();
                             // handle request errors depending on status code
-                            Log.d("DisplayPromptActivity", String.valueOf(statusCode));
+                            Log.d("DisplayPromptActivityError", String.valueOf(statusCode));
                         }
                     }
 
@@ -287,8 +291,6 @@ public class PromptFragment extends Fragment  {
          Set defaults from shared preferences
          */
         adjective1SwitchState = preferences.getBoolean(promptType + USER_SETTING_ADJECTIVE1, true);
-        Log.i("adjective1SwitchName", promptType + USER_SETTING_ADJECTIVE1);
-        Log.i("adjective1SwitchState",adjective1SwitchState.toString());
         adjective1Switch.setChecked(adjective1SwitchState);
 
         adjective2SwitchState = preferences.getBoolean(promptType + USER_SETTING_ADJECTIVE2, true);
