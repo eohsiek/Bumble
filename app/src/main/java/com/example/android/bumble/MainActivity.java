@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -51,6 +52,13 @@ public class MainActivity extends AppCompatActivity{
         fragmentManager.beginTransaction().add(R.id.main_container, homeFragment).commit();
         navigation.setSelectedItemId(R.id.navigation_home);
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_top, menu);
+        return true;
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -106,6 +114,10 @@ public class MainActivity extends AppCompatActivity{
         Toast.makeText(this, "Favorite button pressed", Toast.LENGTH_SHORT).show();
         PromptFragment promptFragment = (PromptFragment) getSupportFragmentManager().findFragmentByTag("promptFragment");
         promptFragment.processFavorite();
+    }
+
+    public void showCredits(MenuItem mi) {
+        Toast.makeText(this, "Show credits", Toast.LENGTH_SHORT).show();
     }
 
 }
