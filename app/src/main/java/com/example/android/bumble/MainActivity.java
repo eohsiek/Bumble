@@ -13,16 +13,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
+import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 public class MainActivity extends AppCompatActivity{
+
 
     final Fragment homeFragment = new HomeFragment();
     final Fragment savedPromptsFragment = new SavedPromptsFragment();
     final Fragment suggestWordFragment = new SuggestWordFragment();
     final Fragment promptFragment = new PromptFragment();
     private FirebaseAnalytics mFirebaseAnalytics;
+    private AdView mAdView;
 
     final FragmentManager fragmentManager = getSupportFragmentManager();
 
@@ -32,6 +37,13 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MobileAds.initialize(this, "ca-app-pub-1915477212292828~2627008740");
+
+        mAdView = this.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
 
         navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);

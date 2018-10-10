@@ -30,6 +30,10 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/prompt_widget_info" />
         </receiver>
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-1915477212292828~2627008740"/>
     </application>
 
 </manifest>
