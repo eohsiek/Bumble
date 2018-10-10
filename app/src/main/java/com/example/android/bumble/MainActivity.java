@@ -1,11 +1,13 @@
 package com.example.android.bumble;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -117,7 +119,17 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void showCredits(MenuItem mi) {
-        Toast.makeText(this, "Show credits", Toast.LENGTH_SHORT).show();
+        new AlertDialog.Builder(this)
+                .setTitle("Credits")
+                .setMessage("Bumble's Drawing Prompts written by Liz Ohsiek.  Artwork by Nadia Ohsiek")
+
+                .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+                .show();
     }
 
 }
