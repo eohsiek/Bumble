@@ -45,13 +45,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
         ads:adSize="BANNER"
         ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
         app:layout_constraintTop_toTopOf="@+id/appBarLayout"
         ads:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="0dp"></com.google.android.gms.ads.AdView>
+        app:layout_constraintEnd_toEndOf="parent"></com.google.android.gms.ads.AdView>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"

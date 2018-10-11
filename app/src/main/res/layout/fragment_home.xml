@@ -8,16 +8,15 @@
     tools:context=".MainActivity">
 
 
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="175dp"
         android:layout_height="148dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="68dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintHorizontal_bias="0.477"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/bumble" />
@@ -27,11 +26,11 @@
         android:layout_height="100dp"
         android:background="@drawable/bumblecharactercropped"
         android:elevation="@dimen/cardview_default_elevation"
-        android:text="Character"
+        android:gravity="top|center_horizontal"
         android:onClick="getPrompt"
+        android:text="Character"
         android:textColor="#000000"
         android:textSize="20sp"
-        android:gravity="top|center_horizontal"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
@@ -40,11 +39,11 @@
         android:layout_height="100dp"
         android:background="@drawable/bumblescenecropped"
         android:elevation="@dimen/cardview_default_elevation"
+        android:gravity="top|center_horizontal"
         android:onClick="getPrompt"
         android:text="Scene"
         android:textColor="#000000"
         android:textSize="20sp"
-        android:gravity="top|center_horizontal"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
@@ -53,10 +52,10 @@
         android:layout_height="100dp"
         android:background="@drawable/bumbleplacecropped"
         android:elevation="@dimen/cardview_default_elevation"
+        android:gravity="top|center_horizontal"
         android:onClick="getPrompt"
         android:text="Place"
         android:textColor="#000000"
-        android:gravity="top|center_horizontal"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline3" />
@@ -80,14 +79,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="227dp" />
+        app:layout_constraintGuide_begin="268dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="437dp" />
+        app:layout_constraintGuide_begin="481dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline3"
