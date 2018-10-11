@@ -25,35 +25,38 @@
     <Button
         android:layout_width="150dp"
         android:layout_height="100dp"
-        android:background="@drawable/characterbackground"
+        android:background="@drawable/bumblecharactercropped"
         android:elevation="@dimen/cardview_default_elevation"
         android:text="Character"
         android:onClick="getPrompt"
-        android:textColor="#ffffff"
+        android:textColor="#000000"
         android:textSize="20sp"
+        android:gravity="top|center_horizontal"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <Button
         android:layout_width="147dp"
         android:layout_height="100dp"
-        android:background="@drawable/scenebackground"
+        android:background="@drawable/bumblescenecropped"
         android:elevation="@dimen/cardview_default_elevation"
         android:onClick="getPrompt"
         android:text="Scene"
-        android:textColor="#ffffff"
+        android:textColor="#000000"
         android:textSize="20sp"
+        android:gravity="top|center_horizontal"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <Button
         android:layout_width="150dp"
         android:layout_height="100dp"
-        android:background="@drawable/placebackground"
+        android:background="@drawable/bumbleplacecropped"
         android:elevation="@dimen/cardview_default_elevation"
         android:onClick="getPrompt"
         android:text="Place"
-        android:textColor="#ffffff"
+        android:textColor="#000000"
+        android:gravity="top|center_horizontal"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline3" />
@@ -61,11 +64,12 @@
     <Button
         android:layout_width="150dp"
         android:layout_height="100dp"
-        android:background="@drawable/objectbackground"
+        android:background="@drawable/bumbleobjectcropped"
         android:elevation="@dimen/cardview_default_elevation"
         android:onClick="getPrompt"
         android:text="Object"
-        android:textColor="#ffffff"
+        android:textColor="#000000"
+        android:gravity="top|center_horizontal"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toStartOf="@+id/guideline4" />
