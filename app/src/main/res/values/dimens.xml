@@ -13,4 +13,5 @@ http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
     <dimen name="pickCategoryHomeMarginTop">8dp</dimen>
     <dimen name="zeroDP">0dp</dimen>
     <dimen name="eightDP">8dp</dimen>
+    <dimen name="fourDP">4dp</dimen>
 </resources>
