@@ -50,9 +50,13 @@ public class MainActivity extends AppCompatActivity{
 
         navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        if(savedInstanceState == null) {
+            fragmentManager.beginTransaction().add(R.id.main_container, homeFragment).commit();
+            navigation.setSelectedItemId(R.id.navigation_home);
+        } else {
+            //default to previous fragment
+        }
 
-        fragmentManager.beginTransaction().add(R.id.main_container, homeFragment).commit();
-        navigation.setSelectedItemId(R.id.navigation_home);
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
     }
 
