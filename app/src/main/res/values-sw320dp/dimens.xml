@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="homebuttontext">18sp</dimen>
+    <dimen name="homeButtonMarginBottom">15dp</dimen>
+    <dimen name="pickCategoryHomeMarginTop">0dp</dimen>
+</resources>

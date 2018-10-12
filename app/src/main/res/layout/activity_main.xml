@@ -29,9 +29,9 @@
 
     <include
         layout="@layout/content_main"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="@dimen/zeroDP"
+        android:layout_height="@dimen/zeroDP"
+        android:layout_marginTop="@dimen/eightDP"
         app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -46,7 +46,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        ads:adUnitId="@string/TestAdID"
         app:layout_constraintTop_toTopOf="@+id/appBarLayout"
         ads:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"></com.google.android.gms.ads.AdView>

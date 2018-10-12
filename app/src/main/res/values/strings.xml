@@ -30,4 +30,6 @@
     <string name="placeButtonText">Place</string>
     <string name="objectButtonText">Object</string>
     <string name="bumbleImageRatio">1:1</string>
+    <string name="pickCategoryText">Pick a Category</string>
+    <string name="TestAdID">ca-app-pub-3940256099942544/6300978111</string>
 </resources>

@@ -9,4 +9,8 @@ http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
     -->
     <dimen name="widget_margin">8dp</dimen>
     <dimen name="homebuttontext">20sp</dimen>
+    <dimen name="homeButtonMarginBottom">24dp</dimen>
+    <dimen name="pickCategoryHomeMarginTop">8dp</dimen>
+    <dimen name="zeroDP">0dp</dimen>
+    <dimen name="eightDP">8dp</dimen>
 </resources>
