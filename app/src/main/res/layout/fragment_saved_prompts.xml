@@ -10,22 +10,25 @@
    <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:orientation="horizontal">
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        app:srcCompat="@drawable/ic_favorite_black_24dp"/>
+       android:orientation="horizontal"
+       android:layout_marginTop="50dp">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="@string/my_saved_prompts_title"
         android:textColor="#000000"
-        android:textSize="24dp" />
-
-
+        android:textSize="24dp"
+        android:layout_marginBottom="@dimen/eightDP"/>
     </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Swipe to delete"
+        android:textColor="#000000"
+        android:textSize="12dp"
+        android:layout_marginBottom="@dimen/eightDP"/>
 
     <View
         android:layout_width="match_parent"

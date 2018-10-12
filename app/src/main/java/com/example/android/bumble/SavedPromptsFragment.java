@@ -66,7 +66,7 @@ public class SavedPromptsFragment extends Fragment {
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
                 favoriteViewModel.delete(adapter.getFavoriteAt(viewHolder.getAdapterPosition()));
-                Toast.makeText(getActivity(), "Note Deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Prompt Deleted", Toast.LENGTH_SHORT).show();
             }
         }).attachToRecyclerView(recyclerView);
 
