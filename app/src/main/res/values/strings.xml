@@ -33,4 +33,5 @@
     <string name="pickCategoryText">Pick a Category</string>
     <string name="TestAdID">ca-app-pub-3940256099942544/6300978111</string>
     <string name="adSize">BANNER</string>
+    <string name="bumblebee">BumbleBee</string>
 </resources>

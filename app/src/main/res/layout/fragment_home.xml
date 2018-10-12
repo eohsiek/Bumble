@@ -25,7 +25,8 @@
         app:layout_constraintTop_toTopOf="@+id/topguideline"
         app:layout_constraintWidth_default="percent"
         app:layout_constraintWidth_percent=".45"
-        app:srcCompat="@drawable/bumble" />
+        app:srcCompat="@drawable/bumble"
+        android:contentDescription="@string/bumblebee" />
 
     <Button
         android:id="@+id/characterbutton"
@@ -43,7 +44,7 @@
         app:layout_constraintDimensionRatio="@string/buttonDimensionRatio"
         app:layout_constraintEnd_toStartOf="@+id/guidelineright"
         app:layout_constraintWidth_default="percent"
-        app:layout_constraintWidth_percent=".38" />
+        app:layout_constraintWidth_percent=".38" tools:targetApi="lollipop"/>
 
     <Button
         android:id="@+id/scenebutton"
@@ -61,7 +62,7 @@
         app:layout_constraintDimensionRatio="@string/buttonDimensionRatio"
         app:layout_constraintStart_toStartOf="@+id/guidelineleft"
         app:layout_constraintWidth_default="percent"
-        app:layout_constraintWidth_percent=".38" />
+        app:layout_constraintWidth_percent=".38" tools:targetApi="lollipop"/>
 
     <Button
         android:id="@+id/placebutton"
@@ -78,7 +79,7 @@
         app:layout_constraintDimensionRatio="@string/buttonDimensionRatio"
         app:layout_constraintStart_toStartOf="@+id/guidelineleft"
         app:layout_constraintWidth_default="percent"
-        app:layout_constraintWidth_percent=".38" />
+        app:layout_constraintWidth_percent=".38" tools:targetApi="lollipop"/>
 
     <Button
         android:id="@+id/objectbutton"
@@ -95,7 +96,7 @@
         app:layout_constraintDimensionRatio="@string/buttonDimensionRatio"
         app:layout_constraintEnd_toStartOf="@+id/guidelineright"
         app:layout_constraintWidth_default="percent"
-        app:layout_constraintWidth_percent=".38" />
+        app:layout_constraintWidth_percent=".38" tools:targetApi="lollipop"/>
 
 
     <android.support.constraint.Guideline
