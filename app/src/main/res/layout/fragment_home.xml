@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="55dp" />
+        app:layout_constraintGuide_percent="0.10" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -24,12 +24,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/topguideline"
         app:layout_constraintWidth_default="percent"
-        app:layout_constraintWidth_percent=".5"
+        app:layout_constraintWidth_percent=".45"
         app:srcCompat="@drawable/bumble" />
 
     <Button
-        android:layout_width="150dp"
-        android:layout_height="100dp"
+        android:id="@+id/characterbutton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/bumblecharactercropped"
         android:elevation="@dimen/cardview_default_elevation"
         android:gravity="top|center_horizontal"
@@ -37,12 +39,16 @@
         android:text="Character"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toTopOf="@+id/guideline" />
+        app:layout_constraintBottom_toTopOf="@+id/objectbutton"
+        app:layout_constraintDimensionRatio="8:5"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineright"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".38" />
 
     <Button
-        android:layout_width="147dp"
-        android:layout_height="100dp"
+        android:id="@+id/scenebutton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/bumblescenecropped"
         android:elevation="@dimen/cardview_default_elevation"
         android:gravity="top|center_horizontal"
@@ -50,12 +56,19 @@
         android:text="Scene"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toTopOf="@+id/guideline" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="8:5"
+        app:layout_constraintStart_toStartOf="@+id/guidelineleft"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.708"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".38" />
 
     <Button
-        android:layout_width="150dp"
-        android:layout_height="100dp"
+        android:id="@+id/placebutton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/bumbleplacecropped"
         android:elevation="@dimen/cardview_default_elevation"
         android:gravity="top|center_horizontal"
@@ -63,12 +76,18 @@
         android:text="Place"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="@+id/guideline3" />
+        app:layout_constraintBottom_toTopOf="@+id/guidelinebottombutton"
+        app:layout_constraintDimensionRatio="8:5"
+        app:layout_constraintStart_toStartOf="@+id/guidelineleft"
+        app:layout_constraintTop_toBottomOf="@+id/scenebutton"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".38" />
 
     <Button
-        android:layout_width="150dp"
-        android:layout_height="100dp"
+        android:id="@+id/objectbutton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/bumbleobjectcropped"
         android:elevation="@dimen/cardview_default_elevation"
         android:gravity="top|center_horizontal"
@@ -76,37 +95,40 @@
         android:text="Object"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4" />
+        app:layout_constraintBottom_toTopOf="@+id/guidelinebottombutton"
+        app:layout_constraintDimensionRatio="8:5"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineright"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".38" />
 
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline"
+        android:id="@+id/guidelineleftdelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="268dp" />
+        app:layout_constraintGuide_percent="0.1" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline2"
+        android:id="@+id/guidelinebottombutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="481dp" />
+        app:layout_constraintGuide_percent="0.95"/>
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline3"
+        android:id="@+id/guidelineleft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="39dp" />
+        app:layout_constraintGuide_percent="0.1" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline4"
+        android:id="@+id/guidelineright"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="355dp" />
+        app:layout_constraintGuide_percent="0.9" />
 
     <TextView
         android:id="@+id/textView"
@@ -119,7 +141,7 @@
         android:textColor="#000000"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
