@@ -24,4 +24,10 @@
     <string name="appwidget_contentdesc">Drawing Prompt Widget</string>
     <string name="button_text">Get New Prompt</string>
     <string name="widgetheader">Bumble says to draw:</string>
+    <string name="buttonDimensionRatio">8:5</string>
+    <string name="characterButtonText">Character</string>
+    <string name="sceneButtonText">Scene</string>
+    <string name="placeButtonText">Place</string>
+    <string name="objectButtonText">Object</string>
+    <string name="bumbleImageRatio">1:1</string>
 </resources>
