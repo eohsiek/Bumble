@@ -7,66 +7,63 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <android.support.constraint.Guideline
-        android:id="@+id/topguideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.10" />
-
     <ImageView
         android:id="@+id/bumble"
         android:layout_width="@dimen/zeroDP"
         android:layout_height="@dimen/zeroDP"
+        android:contentDescription="@string/bumblebee"
         app:layout_constraintDimensionRatio="@string/bumbleImageRatio"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/topguideline"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guidelineleft"
+        app:layout_constraintTop_toTopOf="@+id/beeTopGuideline"
         app:layout_constraintWidth_default="percent"
-        app:layout_constraintWidth_percent=".45"
-        app:srcCompat="@drawable/bumble"
-        android:contentDescription="@string/bumblebee" />
+        app:layout_constraintWidth_percent=".25"
+        app:srcCompat="@drawable/bumble" />
 
     <Button
         android:id="@+id/characterbutton"
         android:layout_width="@dimen/zeroDP"
         android:layout_height="@dimen/zeroDP"
-        android:layout_marginBottom="@dimen/homeButtonMarginBottom"
         android:background="@drawable/bumblecharactercropped"
         android:elevation="@dimen/cardview_default_elevation"
+        android:layout_marginBottom="@dimen/homeButtonMarginBottom"
         android:gravity="top|center_horizontal"
         android:onClick="getPrompt"
         android:text="@string/characterButtonText"
         android:textColor="@color/black"
         android:textSize="@dimen/homebuttontext"
-        app:layout_constraintBottom_toTopOf="@+id/objectbutton"
         app:layout_constraintDimensionRatio="@string/buttonDimensionRatio"
         app:layout_constraintEnd_toStartOf="@+id/guidelineright"
+        app:layout_constraintTop_toTopOf="@+id/beeTopGuideline"
         app:layout_constraintWidth_default="percent"
-        app:layout_constraintWidth_percent=".38" tools:targetApi="lollipop"/>
+        app:layout_constraintWidth_percent=".22"
+        tools:targetApi="lollipop" />
 
     <Button
         android:id="@+id/scenebutton"
         android:layout_width="@dimen/zeroDP"
         android:layout_height="@dimen/zeroDP"
-        android:layout_marginBottom="@dimen/homeButtonMarginBottom"
         android:background="@drawable/bumblescenecropped"
         android:elevation="@dimen/cardview_default_elevation"
+        android:layout_marginBottom="@dimen/homeButtonMarginBottom"
         android:gravity="top|center_horizontal"
         android:onClick="getPrompt"
         android:text="@string/sceneButtonText"
         android:textColor="@color/black"
         android:textSize="@dimen/homebuttontext"
-        app:layout_constraintBottom_toTopOf="@+id/placebutton"
         app:layout_constraintDimensionRatio="@string/buttonDimensionRatio"
         app:layout_constraintStart_toStartOf="@+id/guidelinemiddle"
+        app:layout_constraintTop_toTopOf="@+id/beeTopGuideline"
         app:layout_constraintWidth_default="percent"
-        app:layout_constraintWidth_percent=".38" tools:targetApi="lollipop"/>
+        app:layout_constraintWidth_percent=".22"
+        tools:targetApi="lollipop" />
 
     <Button
         android:id="@+id/placebutton"
         android:layout_width="@dimen/zeroDP"
         android:layout_height="@dimen/zeroDP"
+        android:layout_marginTop="@dimen/homeButtonMarginBottom"
         android:background="@drawable/bumbleplacecropped"
         android:elevation="@dimen/cardview_default_elevation"
         android:gravity="top|center_horizontal"
@@ -74,16 +71,18 @@
         android:text="@string/placeButtonText"
         android:textColor="@color/black"
         android:textSize="@dimen/homebuttontext"
-        app:layout_constraintBottom_toTopOf="@+id/guidelinebottombutton"
         app:layout_constraintDimensionRatio="@string/buttonDimensionRatio"
         app:layout_constraintStart_toStartOf="@+id/guidelinemiddle"
+        app:layout_constraintTop_toBottomOf="@+id/scenebutton"
         app:layout_constraintWidth_default="percent"
-        app:layout_constraintWidth_percent=".38" tools:targetApi="lollipop"/>
+        app:layout_constraintWidth_percent=".22"
+        tools:targetApi="lollipop" />
 
     <Button
         android:id="@+id/objectbutton"
         android:layout_width="@dimen/zeroDP"
         android:layout_height="@dimen/zeroDP"
+        android:layout_marginTop="@dimen/homeButtonMarginBottom"
         android:background="@drawable/bumbleobjectcropped"
         android:elevation="@dimen/cardview_default_elevation"
         android:gravity="top|center_horizontal"
@@ -91,11 +90,12 @@
         android:text="@string/objectButtonText"
         android:textColor="@color/black"
         android:textSize="@dimen/homebuttontext"
-        app:layout_constraintBottom_toTopOf="@+id/guidelinebottombutton"
         app:layout_constraintDimensionRatio="@string/buttonDimensionRatio"
         app:layout_constraintEnd_toStartOf="@+id/guidelineright"
+        app:layout_constraintTop_toBottomOf="@+id/characterbutton"
         app:layout_constraintWidth_default="percent"
-        app:layout_constraintWidth_percent=".38" tools:targetApi="lollipop"/>
+        app:layout_constraintWidth_percent=".22"
+        tools:targetApi="lollipop" />
 
 
     <android.support.constraint.Guideline
@@ -103,14 +103,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.95"/>
+        app:layout_constraintGuide_percent="0.90" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelinemiddle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.1" />
+        app:layout_constraintGuide_percent="0.43" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelineright"
@@ -123,14 +123,30 @@
         android:id="@+id/pickCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/pickCategoryHomeMarginTop"
+        android:layout_marginStart="@dimen/eightDP"
+        android:layout_marginLeft="@dimen/eightDP"
+        android:layout_marginTop="@dimen/eightDP"
         android:text="@string/pickCategoryText"
         android:textColor="@color/black"
         android:textSize="@dimen/homebuttontext"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.029"
+        app:layout_constraintStart_toStartOf="@+id/guidelineleft"
         app:layout_constraintTop_toBottomOf="@+id/bumble" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineleft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1"  />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/beeTopGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.18" />
 
 
 </android.support.constraint.ConstraintLayout>
