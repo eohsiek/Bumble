@@ -5,20 +5,26 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteY="81dp">
 
+    <android.support.constraint.Guideline
+        android:id="@+id/topguideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="55dp" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="175dp"
-        android:layout_height="148dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.477"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/topguideline"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".5"
         app:srcCompat="@drawable/bumble" />
 
     <Button
@@ -65,10 +71,10 @@
         android:layout_height="100dp"
         android:background="@drawable/bumbleobjectcropped"
         android:elevation="@dimen/cardview_default_elevation"
+        android:gravity="top|center_horizontal"
         android:onClick="getPrompt"
         android:text="Object"
         android:textColor="#000000"
-        android:gravity="top|center_horizontal"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toStartOf="@+id/guideline4" />
@@ -106,9 +112,9 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="12dp"
         android:text="Pick a Category"
         android:textColor="#000000"
         android:textSize="20dp"
