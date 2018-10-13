@@ -40,4 +40,8 @@
     <string name="adverb_label">Adverb</string>
     <string name="location_label">Location</string>
     <string name="location_adjective_label">Location Adjective</string>
+    <string name="suggest_word_text">Suggest a Word</string>
+    <string name="word_type_label">Word Type:</string>
+    <string name="suggest_word_hint_text">enter your word</string>
+    <string name="submit_word_label">Submit Word</string>
 </resources>
