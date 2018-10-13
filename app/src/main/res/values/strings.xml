@@ -34,4 +34,10 @@
     <string name="TestAdID">ca-app-pub-3940256099942544/6300978111</string>
     <string name="adSize">BANNER</string>
     <string name="bumblebee">BumbleBee</string>
+    <string name="options_label">Options</string>
+    <string name="adjective_1_label">Adjective 1</string>
+    <string name="adjective_2_label">Adjective 2</string>
+    <string name="adverb_label">Adverb</string>
+    <string name="location_label">Location</string>
+    <string name="location_adjective_label">Location Adjective</string>
 </resources>
