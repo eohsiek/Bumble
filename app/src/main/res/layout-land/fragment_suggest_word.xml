@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SuggestWordFragment">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/beeTopGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.18" />
+
+    <ImageView
+        android:id="@+id/bumble"
+        android:layout_width="@dimen/zeroDP"
+        android:layout_height="@dimen/zeroDP"
+        android:contentDescription="@string/bumblebee"
+        app:layout_constraintDimensionRatio="@string/bumbleImageRatio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guidelineleft"
+        app:layout_constraintTop_toTopOf="@+id/beeTopGuideline"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".25"
+        app:srcCompat="@drawable/bumble" />
+
+
+    <TextView
+        android:id="@+id/suggestWord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pickCategoryHomeMarginTop"
+        android:text="@string/suggest_word_text"
+        android:textColor="@color/black"
+        android:textSize="@dimen/homebuttontext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guidelinemiddle"
+        app:layout_constraintTop_toBottomOf="@+id/beeTopGuideline" />
+
+    <TextView
+        android:id="@+id/wordTypeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/word_type_label"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintEnd_toStartOf="@+id/wordtype_spinner"
+        app:layout_constraintStart_toStartOf="@+id/guidelinemiddle"
+        android:textSize="@dimen/homebuttontext"
+        app:layout_constraintTop_toBottomOf="@+id/top_row_guideline" />
+
+    <Spinner
+        android:id="@+id/wordtype_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/eightDP"
+        android:layout_marginLeft="@dimen/eightDP"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/wordTypeLabel"
+        app:layout_constraintTop_toBottomOf="@+id/top_row_guideline" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".35"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guidelinemiddle"
+        app:layout_constraintTop_toBottomOf="@+id/middle_row_guideline"
+        app:layout_constraintLeft_toLeftOf="@id/guidelinemiddle"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/suggestedWord"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:imeOptions="actionNext"
+            android:maxLines="1"
+            android:hint="enter your word" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="sendWord"
+        android:gravity="center"
+        android:text="@string/submit_word_label"
+        android:textSize="@dimen/homebuttontext"
+        app:layout_constraintTop_toBottomOf="@+id/bottom_row_guideline"
+        app:layout_constraintLeft_toLeftOf="@id/guidelinemiddle"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/top_row_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.30" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/middle_row_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.40" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/bottom_row_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.60" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineleft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1"  />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelinemiddle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.35" />
+
+</android.support.constraint.ConstraintLayout>
