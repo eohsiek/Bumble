@@ -43,8 +43,8 @@ public class SuggestWordFragment extends Fragment {
 
         Spinner spinner = (Spinner) view.findViewById(R.id.wordtype_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getActivity(),
-                R.array.wordtype_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                R.array.wordtype_array, R.layout.spinner_item);
+        adapter.setDropDownViewResource(R.layout.spinner_item);
         spinner.setAdapter(adapter);
 
         return view;

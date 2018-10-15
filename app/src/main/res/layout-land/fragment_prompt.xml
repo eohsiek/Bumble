@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_default="percent"
         app:layout_constraintWidth_percent=".3"
-        app:srcCompat="@drawable/bumblescenewidesm" />
+        app:srcCompat="@drawable/bumblescenetall" />
 
     <TextView
         android:id="@+id/title"
