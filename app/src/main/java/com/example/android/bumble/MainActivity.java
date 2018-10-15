@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void processFavorite(View v) {
-        Toast.makeText(this, "Favorite button pressed", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Prompt Saved to Favorites", Toast.LENGTH_SHORT).show();
         PromptFragment promptFragment = (PromptFragment) getSupportFragmentManager().findFragmentByTag("promptFragment");
         promptFragment.processFavorite();
     }

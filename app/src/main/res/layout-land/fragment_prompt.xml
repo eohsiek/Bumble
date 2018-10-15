@@ -142,7 +142,7 @@
         app:layout_constraintTop_toBottomOf="@+id/options_guideline"
         app:layout_constraintWidth_default="percent"
         app:layout_constraintWidth_percent=".05"
-        app:srcCompat="@drawable/ic_favorite_black_24dp" />
+        app:srcCompat="@drawable/addfavorite" />
 
     <Button
         android:id="@+id/button"

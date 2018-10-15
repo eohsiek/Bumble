@@ -14,4 +14,10 @@ http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
     <dimen name="zeroDP">0dp</dimen>
     <dimen name="eightDP">8dp</dimen>
     <dimen name="fourDP">4dp</dimen>
+    <dimen name="widgetbeewidth">44dp</dimen>
+    <dimen name="widgetbeeheight">50dp</dimen>
+    <dimen name="widgettextsize">14sp</dimen>
+    <dimen name="twentfivedp">25dp</dimen>
+    <dimen name="widgetminwidth">80dp</dimen>
+    <dimen name="widgetminheight">120dp</dimen>
 </resources>

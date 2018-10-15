@@ -137,7 +137,7 @@
         app:layout_constraintWidth_default="percent"
         app:layout_constraintWidth_percent=".10"
         android:scaleType="center"
-        app:srcCompat="@drawable/ic_favorite_black_24dp" />
+        app:srcCompat="@drawable/addfavorite" />
 
     <Button
         android:id="@+id/button"

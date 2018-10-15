@@ -23,7 +23,7 @@
     <string name="add_widget">Add widget</string>
     <string name="appwidget_contentdesc">Drawing Prompt Widget</string>
     <string name="button_text">Get New Prompt</string>
-    <string name="widgetheader">Bumble says to draw:</string>
+    <string name="widgetheader">Bumble says draw:</string>
     <string name="buttonDimensionRatio">8:5</string>
     <string name="characterButtonText">Character</string>
     <string name="sceneButtonText">Scene</string>

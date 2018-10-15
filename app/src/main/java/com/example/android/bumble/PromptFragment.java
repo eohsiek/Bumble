@@ -55,6 +55,7 @@ public class PromptFragment extends Fragment  {
     public static final String USER_SETTING_LOCATION = "Location";
     public static final String USER_SETTING_LOCATION_ADJECTIVE = "LocationAdjective";
     public static final String USER_SETTING_LAST_PROMPT = "LastPrompt";
+    public static final String FAB_BUTTON_ENABLED = "Fab Button Enabled";
     public static final String SCENE = "Scene";
     public static final String CHARACTER = "Character";
     public static final String PLACE = "Place";
@@ -120,7 +121,7 @@ public class PromptFragment extends Fragment  {
                 topImage.setImageResource(R.drawable.bumblescenetall);
             }
             else {
-                topImage.setImageResource(R.drawable.bumblescenetall);
+                topImage.setImageResource(R.drawable.bumblescenewide);
             }
         }
 
@@ -233,10 +234,16 @@ public class PromptFragment extends Fragment  {
         });
         if (savedInstanceState != null) {
             String savedPrompt = savedInstanceState.getString(USER_SETTING_LAST_PROMPT);
+            Boolean buttonEnabled = savedInstanceState.getBoolean(FAB_BUTTON_ENABLED);
             loadingImage.setVisibility(View.INVISIBLE);
             promptText.setText(savedPrompt);
+            fab.setEnabled(buttonEnabled);
+            if(buttonEnabled == false){
+                fab.setImageResource(R.drawable.favorite);
+            }
         }
         else {
+            fab.setEnabled(false);
             getPrompt();
         }
 
@@ -259,7 +266,7 @@ public class PromptFragment extends Fragment  {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString(USER_SETTING_LAST_PROMPT, promptText.getText().toString());
-
+        outState.putBoolean(FAB_BUTTON_ENABLED, fab.isEnabled());
         //Save the fragment's state here
     }
 
@@ -275,7 +282,7 @@ public class PromptFragment extends Fragment  {
         promptText.setText("");
         loadingImage.setVisibility(View.VISIBLE);
 
-        fab.setImageResource(R.drawable.ic_favorite_black_24dp);
+        fab.setImageResource(R.drawable.addfavorite);
         fab.setEnabled(true);
 
                /* Convert boolean to int for API */
@@ -339,7 +346,7 @@ public class PromptFragment extends Fragment  {
         favoriteViewModel.insert(favorite);
 
         FloatingActionButton fab = getActivity().findViewById(R.id.floatingActionButton);
-        fab.setImageResource(R.drawable.ic_notifications_black_24dp);
+        fab.setImageResource(R.drawable.favorite);
         fab.setEnabled(false);
     }
 
