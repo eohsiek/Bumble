@@ -6,6 +6,7 @@ import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
@@ -43,6 +44,7 @@ public class PromptFragment extends Fragment  {
     private TextView title;
     private PromptService mService;
     private ImageView loadingImage;
+    private ImageView topImage;
     private TextView promptText;
     private FloatingActionButton fab;
     private SharedPreferences.Editor editor;
@@ -54,6 +56,9 @@ public class PromptFragment extends Fragment  {
     public static final String USER_SETTING_LOCATION_ADJECTIVE = "LocationAdjective";
     public static final String USER_SETTING_LAST_PROMPT = "LastPrompt";
     public static final String SCENE = "Scene";
+    public static final String CHARACTER = "Character";
+    public static final String OBJECT = "Object";
+    public static final String PLACE = "Place";
     private Switch adjective1Switch;
     private Switch adjective2Switch;
     private Switch adverbSwitch;
@@ -86,12 +91,15 @@ public class PromptFragment extends Fragment  {
         promptType = getArguments().getString("promptType");
         title = view.findViewById(R.id.title);
         loadingImage = view.findViewById(R.id.loadingImage);
+        topImage = view.findViewById(R.id.topImage);
         promptText = view.findViewById(R.id.promptText);
         adjective1Switch = view.findViewById(R.id.adjective1Switch);
         adjective2Switch = view.findViewById(R.id.adjective2Switch);
         adverbSwitch = view.findViewById(R.id.adverbSwitch);
         locationSwitch = view.findViewById(R.id.locationSwitch);
         locationAdjectiveSwitch = view.findViewById(R.id.locationAdjectiveSwitch);
+
+        int currentOrientation = getResources().getConfiguration().orientation;
 
 
         fab = view.findViewById(R.id.floatingActionButton);
@@ -110,12 +118,43 @@ public class PromptFragment extends Fragment  {
             adverbSwitch.setVisibility(View.VISIBLE);
             locationSwitch.setVisibility(View.VISIBLE);
             locationAdjectiveSwitch.setVisibility(View.VISIBLE);
+            if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+                topImage.setImageResource(R.drawable.bumblescenetall);
+            }
+            else {
+                topImage.setImageResource(R.drawable.bumblescenetall);
+            }
         }
 
         else {
             adverbSwitch.setVisibility(View.INVISIBLE);
             locationSwitch.setVisibility(View.INVISIBLE);
             locationAdjectiveSwitch.setVisibility(View.INVISIBLE);
+
+            if(promptType.equals(CHARACTER)) {
+                if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    topImage.setImageResource(R.drawable.bumblecharactertall);
+                }
+                else {
+                    topImage.setImageResource(R.drawable.bumblecharacterwide);
+                }
+            }
+            else if (promptType.equals(PLACE)) {
+                if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    topImage.setImageResource(R.drawable.bumbleplacetall);
+                }
+                else {
+                    topImage.setImageResource(R.drawable.bumbleplacewide);
+                }
+            }
+            else {
+                if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    topImage.setImageResource(R.drawable.bumbleobjecttall);
+                }
+                else {
+                    topImage.setImageResource(R.drawable.bumbleobjectwide);
+                }
+            }
         }
 
         setSwitches();

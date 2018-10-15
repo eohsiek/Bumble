@@ -68,7 +68,7 @@ public class SuggestWordFragment extends Fragment {
 
                         if(response.isSuccessful()) {
                             String responseType =  response.body().getResponseType();
-                            if(responseType.equals("Success")) {
+                            if( responseType.equals("Success")) {
                                 textEditfield.setText("");
                             }
                             Toast.makeText(getActivity(), response.body().getResponseMessage(), Toast.LENGTH_LONG).show();
@@ -76,6 +76,7 @@ public class SuggestWordFragment extends Fragment {
                         }else {
                             int statusCode  = response.code();
                             // handle request errors depending on status code
+                            Toast.makeText(getActivity(), "Error Submitting Word.  Please try again.", Toast.LENGTH_LONG).show();
                             Log.d("DisplayPromptActivity", String.valueOf(statusCode));
                         }
                     }
@@ -83,6 +84,7 @@ public class SuggestWordFragment extends Fragment {
                     @Override
                     public void onFailure(Call<SuggestionResponse> call, Throwable t) {
                         //showErrorMessage();
+                        Toast.makeText(getActivity(), "Error Submitting Word.  Please try again.", Toast.LENGTH_LONG).show();
                         Log.d("DisplayPromptActivity", "error loading prompt from API");
 
                     }
