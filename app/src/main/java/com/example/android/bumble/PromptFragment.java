@@ -57,7 +57,6 @@ public class PromptFragment extends Fragment  {
     public static final String USER_SETTING_LAST_PROMPT = "LastPrompt";
     public static final String SCENE = "Scene";
     public static final String CHARACTER = "Character";
-    public static final String OBJECT = "Object";
     public static final String PLACE = "Place";
     private Switch adjective1Switch;
     private Switch adjective2Switch;
@@ -70,7 +69,6 @@ public class PromptFragment extends Fragment  {
     private Boolean locationSwitchState;
     private Boolean locationAdjectiveSwitchState;
     private FirebaseAnalytics mFirebaseAnalytics;
-    private FavoriteViewModel favoriteViewModel;
 
     private SharedPreferences preferences;
 
@@ -233,8 +231,14 @@ public class PromptFragment extends Fragment  {
                 editor.commit();
             }
         });
-
-        getPrompt();
+        if (savedInstanceState != null) {
+            String savedPrompt = savedInstanceState.getString(USER_SETTING_LAST_PROMPT);
+            loadingImage.setVisibility(View.INVISIBLE);
+            promptText.setText(savedPrompt);
+        }
+        else {
+            getPrompt();
+        }
 
         return view;
     }
@@ -248,8 +252,15 @@ public class PromptFragment extends Fragment  {
     @Override
     public void onResume(){
         super.onResume();
-        Log.i("adjectiveTest", "onresume");
         setSwitches();
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(USER_SETTING_LAST_PROMPT, promptText.getText().toString());
+
+        //Save the fragment's state here
     }
 
 

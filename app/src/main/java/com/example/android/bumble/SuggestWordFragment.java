@@ -68,7 +68,7 @@ public class SuggestWordFragment extends Fragment {
 
                         if(response.isSuccessful()) {
                             String responseType =  response.body().getResponseType();
-                            if( responseType.equals("Success")) {
+                            if(responseType.equals("Success")) {
                                 textEditfield.setText("");
                             }
                             Toast.makeText(getActivity(), response.body().getResponseMessage(), Toast.LENGTH_LONG).show();
