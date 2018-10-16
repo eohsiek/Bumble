@@ -18,18 +18,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_default="percent"
         app:layout_constraintWidth_percent=".3"
-        app:srcCompat="@drawable/bumblescenetall" />
+        app:srcCompat="@drawable/bumblescenetall"
+        android:contentDescription="@null" />
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PromptType"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/new_prompt_button"
         app:layout_constraintStart_toStartOf="@+id/fab_left_guideline"
-        tools:text="PromptType" />
+        tools:text="@string/prompt_type" />
 
     <TextView
         android:id="@+id/promptText"
@@ -48,6 +48,7 @@
         android:layout_height="@dimen/zeroDP"
         android:layout_gravity="center"
         android:scaleType="fitXY"
+        android:contentDescription="@string/loading_text"
         app:layout_constraintDimensionRatio="@string/bumbleImageRatio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_default="percent"
@@ -137,6 +138,7 @@
         android:focusable="true"
         android:onClick="processFavorite"
         android:scaleType="center"
+        android:contentDescription="@string/save_prompt"
         app:layout_constraintDimensionRatio="@string/bumbleImageRatio"
         app:layout_constraintStart_toStartOf="@+id/fab_guideline"
         app:layout_constraintTop_toBottomOf="@+id/options_guideline"

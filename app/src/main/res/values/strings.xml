@@ -44,4 +44,9 @@
     <string name="word_type_label">Word Type:</string>
     <string name="suggest_word_hint_text">enter your word</string>
     <string name="submit_word_label">Submit Word</string>
+    <string name="loading_text">loading</string>
+    <string name="save_prompt">Save Prompt</string>
+    <string name="prompt_type">PromptType</string>
+    <string name="submitworderror">Error Submitting Word.  Please try again.</string>
+    <string name="success_string">Success</string>
 </resources>
