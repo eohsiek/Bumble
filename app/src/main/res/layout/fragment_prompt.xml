@@ -26,8 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/prompt_type"
-        android:padding="@dimen/fourDP"
-        android:textColor="@color/bluetext"
+        android:textColor="@color/black"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toTopOf="@+id/title_guideline"
         app:layout_constraintEnd_toStartOf="@+id/right_guideline"
@@ -38,6 +37,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
+        android:padding="@dimen/fourDP"
+        android:textColor="@color/bluetext"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/prompttext_guideline" />
