@@ -11,14 +11,14 @@
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:orientation="horizontal"
-       android:layout_marginTop="50dp">
+       android:layout_marginTop="@dimen/hundreddp">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="@string/my_saved_prompts_title"
-        android:textColor="#000000"
-        android:textSize="24dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/twentyfourSP"
         android:layout_marginBottom="@dimen/eightDP"/>
     </LinearLayout>
     <TextView
@@ -26,13 +26,13 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="Swipe to delete"
-        android:textColor="#000000"
-        android:textSize="12dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/twelvesp"
         android:layout_marginBottom="@dimen/eightDP"/>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/onedp"
         android:background="@android:color/darker_gray" />
 
     <android.support.v7.widget.RecyclerView
