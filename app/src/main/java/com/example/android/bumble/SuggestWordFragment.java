@@ -1,6 +1,7 @@
 package com.example.android.bumble;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
@@ -29,6 +30,7 @@ import retrofit2.Response;
 public class SuggestWordFragment extends Fragment {
 
     private PromptService mService;
+    private Context context;
 
     public SuggestWordFragment() {
         // Required empty public constructor
@@ -52,41 +54,49 @@ public class SuggestWordFragment extends Fragment {
 
     public void sendWord() {
         /*get values from form */
-        Spinner wordtypeSpinner = getActivity().findViewById(R.id.wordtype_spinner);
-        String wordtype = wordtypeSpinner.getSelectedItem().toString();
-        String tableName = wordtype.toLowerCase() + 's';
+        if (isAdded()) {
+            Spinner wordtypeSpinner = getActivity().findViewById(R.id.wordtype_spinner);
+            String wordtype = wordtypeSpinner.getSelectedItem().toString();
+            String tableName = wordtype.toLowerCase() + 's';
 
-        final TextInputEditText textEditfield = getActivity().findViewById(R.id.suggestedWord);
-        String suggestedWord = String.valueOf(textEditfield.getText());
+            final TextInputEditText textEditfield = getActivity().findViewById(R.id.suggestedWord);
+            String suggestedWord = String.valueOf(textEditfield.getText());
 
-       /* make asynchronous call to API */
-        mService = ApiUtils.getSuggestService();
-        mService.sendWord(tableName, suggestedWord)
-                .enqueue(new Callback<SuggestionResponse>() {
-                    @Override
-                    public void onResponse(Call<SuggestionResponse> call, Response<SuggestionResponse> response) {
+            /* make asynchronous call to API */
+            mService = ApiUtils.getSuggestService();
+            mService.sendWord(tableName, suggestedWord)
+                    .enqueue(new Callback<SuggestionResponse>() {
+                        @Override
+                        public void onResponse(Call<SuggestionResponse> call, Response<SuggestionResponse> response) {
 
-                        if(response.isSuccessful()) {
-                            String responseType =  response.body().getResponseType();
-                            if(responseType.equals(getString(R.string.success_string))) {
-                                textEditfield.setText("");
+                            if (response.isSuccessful()) {
+                                String responseType = response.body().getResponseType();
+                                if (responseType.equals(getString(R.string.success_string))) {
+                                    textEditfield.setText("");
+                                }
+                                if (isAdded()) {
+                                    Toast.makeText(getActivity(), response.body().getResponseMessage(), Toast.LENGTH_LONG).show();
+                                }
+
+                            } else {
+                                int statusCode = response.code();
+                                // handle request errors depending on status code
+                                if (isAdded()) {
+                                    Toast.makeText(getActivity(), " R.string.submitworderror.", Toast.LENGTH_LONG).show();
+                                }
                             }
-                            Toast.makeText(getActivity(), response.body().getResponseMessage(), Toast.LENGTH_LONG).show();
-
-                        }else {
-                            int statusCode  = response.code();
-                            // handle request errors depending on status code
-                            Toast.makeText(getActivity(), " R.string.submitworderror.", Toast.LENGTH_LONG).show();
                         }
-                    }
 
-                    @Override
-                    public void onFailure(Call<SuggestionResponse> call, Throwable t) {
-                        //showErrorMessage();
-                        Toast.makeText(getActivity(), R.string.submitworderror, Toast.LENGTH_LONG).show();
+                        @Override
+                        public void onFailure(Call<SuggestionResponse> call, Throwable t) {
+                            //showErrorMessage();
+                            if (isAdded()) {
+                                Toast.makeText(getActivity(), R.string.submitworderror, Toast.LENGTH_LONG).show();
+                            }
 
-                    }
-                });
+                        }
+                    });
+        }
     }
 
     public void sendWord(View view) {
