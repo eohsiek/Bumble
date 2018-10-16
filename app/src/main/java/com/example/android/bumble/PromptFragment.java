@@ -309,6 +309,8 @@ public class PromptFragment extends Fragment  {
                             editor.putString(USER_SETTING_LAST_PROMPT, newprompt).commit();
                         }else {
                             int statusCode  = response.code();
+                            loadingImage.setVisibility(View.INVISIBLE);
+                            promptText.setText(R.string.fetchPromptError);
                             // handle request errors depending on status code
                             Log.d("DisplayPromptError", String.valueOf(statusCode));
                         }
@@ -317,6 +319,8 @@ public class PromptFragment extends Fragment  {
                     @Override
                     public void onFailure(Call<PromptResponse> call, Throwable t) {
                         //showErrorMessage();
+                        loadingImage.setVisibility(View.INVISIBLE);
+                        promptText.setText(R.string.fetchPromptError);
                         Log.d("DisplayPromptActivity", "error loading prompt from API");
 
                     }
