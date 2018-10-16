@@ -37,6 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/eightDP"
         android:background="#ffffff"
+        android:padding="@dimen/fourDP"
         android:contentDescription="@string/appwidget_contentdesc"
         android:text="@string/appwidget_text"
         android:textColor="@color/bluetext"

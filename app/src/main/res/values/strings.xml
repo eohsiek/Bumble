@@ -49,4 +49,5 @@
     <string name="prompt_type">PromptType</string>
     <string name="submitworderror">Error Submitting Word.  Please try again.</string>
     <string name="success_string">Success</string>
+    <string name="fetchPromptError">Unable to fetch prompt.</string>
 </resources>
