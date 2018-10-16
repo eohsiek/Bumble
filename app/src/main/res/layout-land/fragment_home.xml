@@ -103,7 +103,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.90" />
+        app:layout_constraintGuide_percent="0.80" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelinemiddle"
@@ -125,7 +125,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/eightDP"
         android:layout_marginLeft="@dimen/eightDP"
-        android:layout_marginTop="@dimen/eightDP"
+        android:layout_marginTop="@dimen/zeroDP"
         android:text="@string/pickCategoryText"
         android:textColor="@color/black"
         android:textSize="@dimen/homebuttontext"
@@ -146,7 +146,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.18" />
+        app:layout_constraintGuide_percent="0.35" />
 
 
 </android.support.constraint.ConstraintLayout>
