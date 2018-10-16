@@ -36,7 +36,6 @@
         android:layout_width="@dimen/zeroDP"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:padding="@dimen/fourDP"
         android:textColor="@color/bluetext"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintStart_toStartOf="@+id/left_guideline"
@@ -134,16 +133,16 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatingActionButton"
-        android:layout_width="@dimen/zeroDP"
-        android:layout_height="@dimen/zeroDP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="true"
         android:onClick="processFavorite"
         android:scaleType="center"
         android:contentDescription="@string/save_prompt"
         app:layout_constraintDimensionRatio="@string/bumbleImageRatio"
-        app:layout_constraintStart_toStartOf="@+id/fab_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/options_guideline"
+        app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/switch_row3"
         app:layout_constraintWidth_default="percent"
         app:layout_constraintWidth_percent=".05"
         app:srcCompat="@drawable/addfavorite" />
@@ -220,6 +219,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.03" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/right_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
 
     <android.support.constraint.Guideline
         android:id="@+id/fab_guideline"
