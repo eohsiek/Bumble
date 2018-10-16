@@ -26,8 +26,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/prompt_type"
+        android:padding="@dimen/fourDP"
+        android:textColor="@color/bluetext"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/title_guideline"
         app:layout_constraintEnd_toStartOf="@+id/right_guideline"
         tools:text="@string/prompt_type" />

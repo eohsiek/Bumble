@@ -39,7 +39,7 @@
         android:background="#ffffff"
         android:contentDescription="@string/appwidget_contentdesc"
         android:text="@string/appwidget_text"
-        android:textColor="@color/black"
+        android:textColor="@color/bluetext"
         android:textSize="@dimen/widgettextsize"
         android:textStyle="bold|italic"
         android:layout_gravity="center_horizontal"/>
