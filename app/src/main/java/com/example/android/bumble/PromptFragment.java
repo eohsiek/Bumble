@@ -307,13 +307,6 @@ public class PromptFragment extends Fragment  {
                             promptText.setText(newprompt);
                             editor = preferences.edit();
                             editor.putString(USER_SETTING_LAST_PROMPT, newprompt).commit();
-                            //update widget if activity is still active
-                            if (isAdded()) {
-                                AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(getActivity());
-                                int[] ids = appWidgetManager.getAppWidgetIds(new ComponentName(getActivity(), PromptWidget.class));
-                                PromptWidget widget = new PromptWidget();
-                                widget.onUpdate(getActivity(), AppWidgetManager.getInstance(getActivity()), ids);
-                            }
                         }else {
                             int statusCode  = response.code();
                             // handle request errors depending on status code
