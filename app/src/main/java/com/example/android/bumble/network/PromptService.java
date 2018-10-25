@@ -27,6 +27,8 @@ public interface PromptService {
             @Query("includePlace") Integer includePlace,
             @Query("includePlaceAdjective") Integer includePlaceAdjective);
 
+    @Headers("x-api-key: " + BuildConfig.apikey)
+
     @GET("?")
     Call<SuggestionResponse> sendWord(
             @Query("tableName") String tableName,
