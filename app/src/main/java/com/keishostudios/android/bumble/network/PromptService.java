@@ -1,11 +1,9 @@
 //thanks to https://code.tutsplus.com/tutorials/getting-started-with-retrofit-2--cms-27792 as a starting point for the code below
-package com.example.android.bumble.network;
+package com.keishostudios.android.bumble.network;
 
-import android.os.Build;
-
-import com.example.android.bumble.BuildConfig;
-import com.example.android.bumble.network.pojo.PromptResponse;
-import com.example.android.bumble.network.pojo.SuggestionResponse;
+import com.keishostudios.android.bumble.BuildConfig;
+import com.keishostudios.android.bumble.network.pojo.PromptResponse;
+import com.keishostudios.android.bumble.network.pojo.SuggestionResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

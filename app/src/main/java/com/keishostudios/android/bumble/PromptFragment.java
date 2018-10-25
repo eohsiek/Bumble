@@ -1,14 +1,10 @@
-package com.example.android.bumble;
+package com.keishostudios.android.bumble;
 
 
-import android.app.Activity;
-import android.appwidget.AppWidgetManager;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -17,17 +13,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.RemoteViews;
 import android.widget.Switch;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.android.bumble.database.Favorite;
-import com.example.android.bumble.database.FavoriteViewModel;
+import com.keishostudios.android.bumble.database.Favorite;
+import com.keishostudios.android.bumble.database.FavoriteViewModel;
 import android.arch.lifecycle.ViewModelProviders;
-import com.example.android.bumble.network.PromptService;
-import com.example.android.bumble.network.pojo.ApiUtils;
-import com.example.android.bumble.network.pojo.PromptResponse;
+import com.keishostudios.android.bumble.network.PromptService;
+import com.keishostudios.android.bumble.network.pojo.ApiUtils;
+import com.keishostudios.android.bumble.network.pojo.PromptResponse;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import retrofit2.Call;

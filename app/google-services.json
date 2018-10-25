@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:693275821678:android:dff096c19ab2cab6",
         "android_client_info": {
-          "package_name": "com.example.android.bumble"
+          "package_name": "com.keishostudios.android.bumble"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "693275821678-r3uaquooeaqnmgb31kdrpee77bhuqigu.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.android.bumble",
+            "package_name": "com.keishostudios.android.bumble",
             "certificate_hash": "23f4563d6842daa097f9fac2c991e1757e69bf22"
           }
         },

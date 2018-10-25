@@ -1,4 +1,4 @@
-package com.example.android.bumble;
+package com.keishostudios.android.bumble;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.android.bumble.database.Favorite;
+import com.keishostudios.android.bumble.database.Favorite;
 
 import java.util.List;
 

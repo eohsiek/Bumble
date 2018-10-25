@@ -1,4 +1,4 @@
-package com.example.android.bumble.database;
+package com.keishostudios.android.bumble.database;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;

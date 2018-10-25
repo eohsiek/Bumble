@@ -1,4 +1,4 @@
-package com.example.android.bumble.network.pojo;
+package com.keishostudios.android.bumble.network.pojo;
 
 public class PromptResponse
 {

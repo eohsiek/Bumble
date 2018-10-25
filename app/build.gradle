@@ -11,7 +11,7 @@ android {
     }
     compileSdkVersion 27
     defaultConfig {
-        applicationId "com.example.android.bumble"
+        applicationId "com.keishostudios.android.bumble"
         minSdkVersion 15
         targetSdkVersion 27
         versionCode 1

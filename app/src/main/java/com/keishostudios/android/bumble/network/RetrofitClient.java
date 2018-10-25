@@ -1,5 +1,5 @@
 //thanks to https://code.tutsplus.com/tutorials/getting-started-with-retrofit-2--cms-27792 tutorial for the code below
-package com.example.android.bumble.network;
+package com.keishostudios.android.bumble.network;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;

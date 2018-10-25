@@ -1,23 +1,20 @@
-package com.example.android.bumble;
+package com.keishostudios.android.bumble;
 
 
 import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.android.bumble.network.PromptService;
-import com.example.android.bumble.network.pojo.ApiUtils;
-import com.example.android.bumble.network.pojo.PromptResponse;
-import com.example.android.bumble.network.pojo.SuggestionResponse;
+import com.keishostudios.android.bumble.network.PromptService;
+import com.keishostudios.android.bumble.network.pojo.ApiUtils;
+import com.keishostudios.android.bumble.network.pojo.SuggestionResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;

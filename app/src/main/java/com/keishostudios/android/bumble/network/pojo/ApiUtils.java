@@ -1,8 +1,8 @@
 //thanks to https://code.tutsplus.com/tutorials/getting-started-with-retrofit-2--cms-27792 as a starting point for the code below
-package com.example.android.bumble.network.pojo;
+package com.keishostudios.android.bumble.network.pojo;
 
-import com.example.android.bumble.network.PromptService;
-import com.example.android.bumble.network.RetrofitClient;
+import com.keishostudios.android.bumble.network.PromptService;
+import com.keishostudios.android.bumble.network.RetrofitClient;
 
 public class ApiUtils {
 

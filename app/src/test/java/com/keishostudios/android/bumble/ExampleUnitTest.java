@@ -1,4 +1,4 @@
-package com.example.android.bumble;
+package com.keishostudios.android.bumble;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.example.android.bumble;
+package com.keishostudios.android.bumble;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.android.bumble", appContext.getPackageName());
+        assertEquals("com.com.keishostudios.android.bumble", appContext.getPackageName());
     }
 }
